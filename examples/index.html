@@ -9,6 +9,18 @@
 		$('#busca').keyup(function(){
 			$('#vagas').tableSearch($(this).val());
 		});	
+		$('#busca2').keyup(function(){
+			$('#vagas').tableSearch($(this).val(),{
+				withMatch: function(matches){
+					matches.css('background','red');
+					matches.css('display','');
+				},
+				withNoMatch: function(nomatches){
+					nomatches.css('background','white');
+					matches.css('display','');
+				},				
+			});
+		});	
 	});
 	</script>
 	<link rel="stylesheet" href="style.css">
@@ -18,9 +30,13 @@
 	<h1>Classificados do CorreioWeb - 09/07/2013</h1>
 	<h2>Gentilmente organizado por <a href="#" id="about-me">Yarkhan</a></h2>
 	<div>
-		<span>Pesquisar Vaga</span>
+		<span>Pesquisar Vaga (funcionalidade padrão)</span>
 		<input type="text" id="busca">
 	</div>
+	<div>
+		<span>Pesquisar Vaga (muda a cor de fundo)</span>
+		<input type="text" id="busca2">
+	</div>			
 	<table id="vagas">
 	<thead>
 		<th data-sort="string"><a href="#">N&iacute;vel Requerido</a></th>
